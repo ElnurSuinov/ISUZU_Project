@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: rgba(10, 10, 10, 0.9);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.navbar .logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 26px;
+  color: #ff2e2e;
+  letter-spacing: 2px;
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar nav a:hover {
+  color: #ff2e2e;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url("/static/images/showroom_bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  color: #ff2e2e;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  color: #d0d0d0;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: #ff2e2e;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.cta-button:hover {
+  background: #e62929;
+  transform: translateY(-2px);
+}
+
+/* Models Section */
+.models-section {
+  padding: 100px 60px;
+  background: #141414;
+  text-align: center;
+}
+
+.models-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff2e2e;
+  font-size: 2.2em;
+  margin-bottom: 40px;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.vehicle-card {
+  background: #1c1c1c;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255, 46, 46, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(255, 46, 46, 0.4);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.vehicle-info {
+  padding: 18px;
+}
+
+.vehicle-info h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff2e2e;
+  margin-bottom: 5px;
+}
+
+.vehicle-info .price {
+  font-weight: bold;
+  color: #00ffc6;
+  margin: 8px 0;
+}
+
+.details-btn {
+  display: inline-block;
+  background: #ff2e2e;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.details-btn:hover {
+  background: #e62929;
+}
+
+/* About Section */
+.about-section {
+  background: #0f0f0f;
+  padding: 80px 60px;
+  text-align: center;
+}
+.about-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff2e2e;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background: #1a1a1a;
+  color: #aaa;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9em;
+  border-top: 1px solid #333;
+}

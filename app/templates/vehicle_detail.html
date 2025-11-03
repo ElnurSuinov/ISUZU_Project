@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ vehicle.name if vehicle else "Vehicle not found" }}</title>
+
+  <!-- Cyberpunk font + CSS -->
+  <link rel="icon" href="/static/images/favicon.ico" type="images/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/vehicle_detail.css">
+</head>
+
+<body>
+{% if vehicle %}
+  <!-- === Header === -->
+  <h1>{{ vehicle.name }} ({{ vehicle.year }})</h1>
+
+  <!-- === Vehicle info === -->
+  <div class="info">
+    <p>{{ vehicle.description }}</p>
+    <p><strong>Type:</strong> {{ vehicle.type }}</p>
+    <p><strong>Base Price:</strong> ${{ vehicle.price }}</p>
+  </div>
+
+  <!-- === Trim Selector === -->
+  <div class="trim-selector">
+    <h3>Select Complectation:</h3>
+    <select id="trimSelect">
+      {% for trim in vehicle.trims %}
+        <option value="{{ trim.id }}"
+                data-specs='{{ trim.specs | tojson }}'
+                data-colors='{{ trim.colors | tojson if trim.colors else "[]" }}'
+                data-price="{{ trim.price }}">
+          {{ trim.name }} — ${{ trim.price }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- === Specifications Table === -->
+  <div id="specsContainer" class="specs-section">
+    <h2>Specifications</h2>
+    <table id="specsTable" class="specs-table"></table>
+  </div>
+
+  <!-- === Color Selector === -->
+  <div class="color-picker">
+    <h3>Choose Color:</h3>
+    <div id="colorOptions" class="color-options">
+      <!-- Default color buttons -->
+      <button class="color-btn" data-color="#ffffff" aria-label="Splash White"></button>
+      <button class="color-btn" data-color="#c0c0c0" aria-label="Titanium Silver"></button>
+      <button class="color-btn" data-color="#6e6e6e" aria-label="Garena Gray Metallic"></button>
+      <button class="color-btn" data-color="#4f4f4f" aria-label="Obsidian Gray Mica"></button>
+      <button class="color-btn" data-color="#1c1c1c" aria-label="Cosmic Black Mica"></button>
+      <button class="color-btn" data-color="#1a3b8b" aria-label="Sapphire Blue Mica"></button>
+      <button class="color-btn" data-color="#8b0000" aria-label="Red Spinel Mica"></button>
+    </div>
+  </div>
+
+  <!-- === 3D Scene Canvas === -->
+  <canvas id="scene" width="900" height="500" data-model="{{ vehicle.model3d }}"></canvas>
+
+  <!-- === Controls === -->
+  <div class="controls">
+    <button id="resetView">🔄 Reset View</button>
+  </div>
+
+  <!-- === JS Script === -->
+  <script type="module" src="/static/js/vehicle_detail.js"></script>
+
+{% else %}
+  <h2>{{ error }}</h2>
+{% endif %}
+</body>
+</html>

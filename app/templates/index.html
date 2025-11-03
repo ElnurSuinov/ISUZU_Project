@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ISUZU Vehicle Showroom</title>
+  <link rel="icon" href="/static/images/favicon.ico" type="images/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">ISUZU</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="#models">Models</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Engineered for Excellence</h1>
+      <p>Discover the next generation of ISUZU performance and reliability.</p>
+      <a href="#models" class="cta-button">Explore Vehicles</a>
+    </div>
+  </section>
+
+  <!-- Vehicle Grid -->
+  <section id="models" class="models-section">
+    <h2>Our Models</h2>
+    <div class="vehicle-grid">
+      {% for vehicle in vehicles %}
+      <div class="vehicle-card">
+        <img src="/static/images/dmax.jpeg" alt="{{ vehicle.name }}">
+        <div class="vehicle-info">
+          <h3>{{ vehicle.name }}</h3>
+          <p>{{ vehicle.type }} | {{ vehicle.year }}</p>
+          <p class="price">${{ vehicle.price }}</p>
+          <a href="/vehicles/{{ vehicle.id }}" class="details-btn">View Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>About ISUZU</h2>
+    <p>For over a century, ISUZU has delivered engineering excellence, creating vehicles that embody strength, endurance, and innovation. Our mission is to empower drivers worldwide with advanced diesel technology and exceptional reliability.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <p>© 2025 ISUZU Motors Ltd. All rights reserved.</p>
+    <p>Contact us: info@isuzu.com</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
