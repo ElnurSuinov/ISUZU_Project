@@ -1,6 +1,6 @@
-from app.database import get_db
-from app.database.models import Vehicle, Trim
-from app.api.vehicles.schemas import VehicleOut, Specs
+from database import get_db
+from database.models import Vehicle, Trim
+from api.vehicles.schemas import VehicleOut, Specs
 
 
 def create_vehicle_db(vehicle_out: VehicleOut):
@@ -9,7 +9,8 @@ def create_vehicle_db(vehicle_out: VehicleOut):
     new_info = Vehicle(**vehicle_data)
     db.add(new_info)
     db.commit()
-    return True
+    db.refresh(new_info)
+    return new_info
 
 
 def add_specs_db(specs: Specs):
@@ -18,7 +19,8 @@ def add_specs_db(specs: Specs):
     new_specs = Trim(**specs_data)
     db.add(new_specs)
     db.commit()
-    return True
+    db.refresh(new_specs)
+    return new_specs
 
 
 def get_vehicle_db(vehicle_id: int):

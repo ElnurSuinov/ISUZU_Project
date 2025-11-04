@@ -7,7 +7,7 @@ class VehicleOut(BaseModel):
     type: str
     year: int
     price: float
-    # img: Optional[str]
+    img: Optional[str]
     description: str
     model3d: str
     # specs: str

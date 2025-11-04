@@ -1,5 +1,5 @@
-from app import database
-from app.database import models
+import database
+from database import models
 
 db = database.SessionLocal()
 

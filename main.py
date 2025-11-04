@@ -1,15 +1,15 @@
 from fastapi import FastAPI
-from app.database import Base, engine
+from database import Base, engine
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from app.api.vehicles.main import vehicle_router, trim_router
-from app.api.home.home import home_router
+from api.vehicles.main import vehicle_router, trim_router
+from api.home.home import home_router
 
 app = FastAPI(docs_url="/docs")
 templates = Jinja2Templates(directory="templates")
 Base.metadata.create_all(engine)
 
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(vehicle_router)
 app.include_router(home_router)

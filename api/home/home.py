@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
-from app import database
-from app.database import models
-from app.api.vehicles.main import templates
+import database
+from database import models
+from api.vehicles.main import templates
 
 home_router = APIRouter()
 
