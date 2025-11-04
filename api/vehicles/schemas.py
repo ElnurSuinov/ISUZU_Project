@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, Union
+from typing import Optional, Union, List, Dict
 
 class VehicleOut(BaseModel):
     id: int
@@ -25,8 +25,9 @@ class Specs(BaseModel):
     engine: str
     transmission: str
     drive_type: str
-    specs: str
-    colors: str
+    specs: Dict[str, str]
+    colors: List[str]
+    vehicle_id: int
 
     class Config:
         orm_mode = True

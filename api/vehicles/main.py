@@ -37,6 +37,7 @@ def create_trim_api(trim: Specs):
 @vehicle_router.get("/all", response_class=HTMLResponse)
 def get_all_vehicles_api(request: Request):
     result = get_all_vehicles_db()
+    print(result)
     return templates.TemplateResponse("index.html",
                                       {"request": request, "vehicles": result})
 
